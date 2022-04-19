@@ -37,10 +37,17 @@ class TestCalcTotalSalary(unittest.TestCase):
 
     def test_10_percent_commission(self):
         self.employee.commission = 10.0
-        self.assertEqual(self.employee.calc_total_salary(), 2200.0)
+        self.employee.sales = 500
+        self.assertEqual(self.employee.calc_total_salary(), 2050.0)
 
     def test_100_percent_commission(self):
         self.employee.commission = 100.0
+        self.employee.sales = 500
+        self.assertEqual(self.employee.calc_total_salary(), 2500.0)
+
+    def test_50_percent_commission(self):
+        self.employee.commission = 50.0
+        self.employee.sales = 4000
         self.assertEqual(self.employee.calc_total_salary(), 4000.0)
 
 
